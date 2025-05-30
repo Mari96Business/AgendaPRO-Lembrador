@@ -1,0 +1,19 @@
+name: Enviar lembretes por email
+
+on:
+  schedule:
+    - cron: '0 7 * * *' # Executa todos os dias às 7h da manhã (UTC)
+  workflow_dispatch:     # Permite executar manualmente também
+
+jobs:
+  enviar-lembretes:
+    runs-on: ubuntu-latest
+
+    steps:
+- name: Chamar função de lembretes
+  run: |
+    curl -X POST https://d-lgfvbsqyllanrwiovae.functions.supabase.co/process-email-reminders \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}"
+
+
