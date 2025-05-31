@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Chamar função de lembretes
-         run: |
-           curl -X POST https://d-lgfbvsqyllamwivvoae.functions.supabase.co/process-email-reminders \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}"
+         run:  |
+                curl -X POST https://d-lgfbvsqyllamwivvoae.functions.supabase.co/process-email-reminders \
+                  -H "Content-Type: application/json" \
+                  -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}"
